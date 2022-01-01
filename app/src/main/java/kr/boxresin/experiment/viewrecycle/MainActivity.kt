@@ -1,6 +1,7 @@
 package kr.boxresin.experiment.viewrecycle
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +13,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         if (contentView == null) {
-            contentView = layoutInflater.inflate(R.layout.activity_main, null)
+            val inflater = LayoutInflater.from(this.applicationContext)
+            contentView = inflater.inflate(R.layout.activity_main, null)
         }
 
         setContentView(contentView)
