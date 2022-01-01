@@ -2,6 +2,7 @@ package kr.boxresin.experiment.viewrecycle
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 
 /** 메인 액티비티 */
@@ -15,6 +16,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         setContentView(contentView)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        contentView?.let {
+            (it.parent as? ViewGroup)?.removeView(it)
+        }
     }
 
     companion object {
